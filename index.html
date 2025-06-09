@@ -328,6 +328,7 @@
                 <li class="nav-item"><a class="nav-link" href="#nosotros" data-bs-dismiss="offcanvas">Nosotros</a></li>
                 <li class="nav-item"><a class="nav-link" href="#servicios" data-bs-dismiss="offcanvas">Servicios</a></li>
                 <li class="nav-item"><a class="nav-link" href="#calidad_aliados" data-bs-dismiss="offcanvas">Calidad y Aliados</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pqr" data-bs-dismiss="offcanvas">PQRs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contacto" data-bs-dismiss="offcanvas">Contáctanos</a></li>
             </ul>
         </div>
@@ -692,6 +693,57 @@
         </div>
     </section>
 
+    <!-- Sección PQR -->
+    <section id="pqr" class="py-5 bg-white border-top">
+        <div class="container">
+            <h2 class="h2 text-center text-primary mb-4">Peticiones, Quejas y Reclamos (PQR)</h2>
+            <p class="lead text-center mb-5">En VITAE REAL, su opinión es fundamental para mejorar nuestros servicios. Por favor, diligencie el siguiente formulario para registrar su petición, queja, reclamo o sugerencia. Nuestro equipo se pondrá en contacto con usted a la mayor brevedad posible.</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="pqrForm" autocomplete="off">
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="pqrNombre" class="form-label">Nombre completo</label>
+                                <input type="text" class="form-control" id="pqrNombre" name="nombre" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="pqrDocumento" class="form-label">Documento de identidad</label>
+                                <input type="text" class="form-control" id="pqrDocumento" name="documento" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="pqrEmail" class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" id="pqrEmail" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="pqrTelefono" class="form-label">Teléfono de contacto</label>
+                                <input type="tel" class="form-control" id="pqrTelefono" name="telefono" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pqrTipo" class="form-label">Tipo de solicitud</label>
+                            <select class="form-select" id="pqrTipo" name="tipo" required>
+                                <option value="">Seleccione una opción</option>
+                                <option value="Petición">Petición</option>
+                                <option value="Queja">Queja</option>
+                                <option value="Reclamo">Reclamo</option>
+                                <option value="Sugerencia">Sugerencia</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pqrMensaje" class="form-label">Descripción detallada</label>
+                            <textarea class="form-control" id="pqrMensaje" name="mensaje" rows="4" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Enviar PQR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contacto" class="bg-primary text-white py-5">
         <div class="container text-center">
             <h2 class="h2 mb-4">Contáctanos</h2>
@@ -759,6 +811,8 @@
         </div>
     </section>
 
+
+
     <footer class="bg-dark text-white p-3 text-center rounded-top">
         <div class="container">
             <p class="small mb-1">
@@ -825,6 +879,17 @@
 
         // LLM Integration for Service Recommendation (Removed)
         // This section has been removed as per user request.
+
+        // PQR Formulario: Simulación de envío
+        document.getElementById('pqrForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Generar número aleatorio de radicado (5 dígitos)
+            const numeroRadicado = Math.floor(10000 + Math.random() * 90000);
+            // Limpiar el formulario
+            this.reset();
+            // Mostrar alerta
+            alert('¡Recibimos su caso! Nos contactaremos con usted muy pronto.\nSu PQR es el Número ' + numeroRadicado);
+        });
     </script>
 
     <!-- Botón flotante de WhatsApp -->
