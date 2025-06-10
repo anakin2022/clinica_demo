@@ -287,13 +287,58 @@
             color: #FFF;
         }
 
+        /* Modal specific styles */
         .modal-body iframe {
             width: 100%;
-            height: 500px;
-            border: 0;
+            height: 400px; /* Adjust height as needed */
+            border: none;
+            border-radius: 0.5rem;
         }
+        /* Styling for the policies modal content */
         .modal-body {
-            padding: 0 !important;
+            max-height: 70vh; /* Limit height to prevent modal from going off-screen on smaller devices */
+            overflow-y: auto; /* Enable scrolling within the modal body if content overflows */
+            color: var(--bs-body-color); /* Ensure text is readable on modal background */
+            text-align: justify; /* Justify text for better readability */
+        }
+        .modal-header .modal-title {
+            color: var(--bs-primary); /* Style modal title */
+            font-weight: 600;
+        }
+        .modal-content {
+            border-radius: 1rem; /* Rounded corners for the modal */
+        }
+        .modal-body h3,
+        .modal-body h4 {
+            color: var(--bs-primary); /* Style headings within policies modal */
+            font-weight: 500;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .modal-body p {
+            margin-bottom: 0.5rem; /* Tighter spacing for paragraphs */
+        }
+        .modal-body ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        .modal-body ul li {
+            margin-bottom: 0.25rem;
+        }
+        /* Styles for footer buttons acting as links */
+        .footer-link-button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            color: white;
+            text-decoration: none;
+            font-size: 0.875rem; /* Bootstrap's 'small' font size */
+            transition: color 0.3s ease;
+        }
+        .footer-link-button:hover {
+            color: #e0f2ff; /* Lighter blue on hover */
+            text-decoration: underline;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -840,9 +885,16 @@
     <footer class="bg-dark text-white p-3 text-center rounded-top">
         <div class="container">
             <p class="small mb-1">
-                <a href="#" class="text-white text-decoration-none me-2">Aviso legal</a> |
-                <a href="#" class="text-white text-decoration-none mx-2">Política de privacidad</a> |
-                <a href="#" class="text-white text-decoration-none ms-2">Términos de uso</a>
+                <!-- Botones que abren modales -->
+                <button type="button" class="btn btn-link text-white text-decoration-none me-2 p-0 footer-link-button" data-bs-toggle="modal" data-bs-target="#privacyPolicyModal">
+                    Política de privacidad
+                </button> |
+                <button type="button" class="btn btn-link text-white text-decoration-none mx-2 p-0 footer-link-button" data-bs-toggle="modal" data-bs-target="#termsOfUseModal">
+                    Términos de uso
+                </button> |
+                <button type="button" class="btn btn-link text-white text-decoration-none ms-2 p-0 footer-link-button" data-bs-toggle="modal" data-bs-target="#policiesModal">
+                    Políticas Institucionales
+                </button>
             </p>
             <p class="small mb-0">© 2025 Clínica Vitae Real | Desarrollado por estudiantes de salud U</p>
         </div>
@@ -932,6 +984,182 @@
                         allowfullscreen="" 
                         loading="lazy">
                     </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Institutional Policies Modal -->
+    <div class="modal fade" id="policiesModal" tabindex="-1" aria-labelledby="policiesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="policiesModalLabel">Políticas Institucionales de VITAE REAL</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Contenido de las políticas institucionales -->
+                    <h3>Políticas Institucionales de VITAE REAL</h3>
+                    <p>En **VITAE REAL**, nuestra prioridad es brindar una atención de salud de excelencia, con un profundo compromiso con la calidad, la seguridad, la ética y el bienestar de nuestros pacientes y colaboradores. Estas políticas guían nuestra operación diaria y reflejan nuestros valores fundamentales.</p>
+
+                    <hr>
+
+                    <h4>1. Política de Privacidad y Confidencialidad</h4>
+                    <p><strong>Objetivo:</strong> Garantizar la protección de la información personal y de salud de nuestros pacientes, colaboradores y usuarios, de acuerdo con la normativa vigente.</p>
+                    <p><strong>Alcance:</strong> Aplica a todos los procesos de recolección, almacenamiento, uso, circulación y supresión de datos personales dentro de la institución.</p>
+                    <p><strong>Compromiso:</strong> Aseguramos la confidencialidad y el manejo ético de toda la información, utilizando medidas de seguridad robustas para prevenir el acceso no autorizado, la alteración o la pérdida de datos. Los pacientes tienen derecho a conocer, actualizar y rectificar su información.</p>
+
+                    <hr>
+
+                    <h4>2. Política de Calidad y Seguridad del Paciente</h4>
+                    <p><strong>Objetivo:</strong> Ofrecer servicios de salud con los más altos estándares de calidad y seguridad, minimizando los riesgos asociados a la atención y promoviendo una cultura de mejora continua.</p>
+                    <p><strong>Alcance:</strong> Cubre todos los procesos asistenciales y administrativos de la clínica.</p>
+                    <p><strong>Compromiso:</strong> Implementamos protocolos rigurosos de seguridad del paciente, programas de vigilancia epidemiológica, y un sistema de gestión de calidad que se revisa y mejora constantemente. Nuestro personal está capacitado para identificar y gestionar riesgos, garantizando un entorno seguro para la atención.</p>
+
+                    <hr>
+
+                    <h4>3. Política de Derechos y Deberes del Paciente</h4>
+                    <p><strong>Objetivo:</strong> Informar y asegurar el pleno ejercicio de los derechos de nuestros pacientes, así como la comprensión y cumplimiento de sus deberes dentro de la institución.</p>
+                    <p><strong>Alcance:</strong> Dirigida a todos los pacientes y sus familias que reciben atención en VITAE REAL.</p>
+                    <p><strong>Compromiso:</strong> Respetamos la dignidad, autonomía e intimidad de cada paciente. Garantizamos el derecho a la información clara y oportuna sobre su estado de salud y opciones de tratamiento, la libre elección, el consentimiento informado y la participación en las decisiones sobre su cuidado. Asimismo, promovemos el cumplimiento de sus deberes para una atención colaborativa y efectiva.</p>
+
+                    <hr>
+
+                    <h4>4. Política de Bioseguridad</h4>
+                    <p><strong>Objetivo:</strong> Prevenir y controlar los riesgos biológicos y ambientales, protegiendo la salud de pacientes, personal y visitantes.</p>
+                    <p><strong>Alcance:</strong> Aplica a todas las áreas y personal de la clínica.</p>
+                    <p><strong>Compromiso:</strong> Adherimos estrictamente a las normativas y protocolos de bioseguridad, incluyendo el uso adecuado de equipos de protección personal, manejo seguro de residuos, desinfección y esterilización de áreas y equipos. Capacitamos continuamente a nuestro personal en estas prácticas esenciales.</p>
+
+                    <hr>
+
+                    <h4>5. Política de Acceso y Agendamiento de Citas</h4>
+                    <p><strong>Objetivo:</strong> Facilitar el acceso equitativo y eficiente a nuestros servicios, optimizando los tiempos de espera y garantizando una gestión organizada de las citas.</p>
+                    <p><strong>Alcance:</strong> Cubre todos los canales de agendamiento y atención al usuario.</p>
+                    <p><strong>Compromiso:</strong> Ofrecemos múltiples canales para agendar citas (telefónico, online, presencial), respetando el principio de turno y criterios de urgencia. Nos esforzamos por brindar información clara sobre requisitos y preparación para cada consulta o procedimiento.</p>
+
+                    <hr>
+
+                    <h4>6. Política de Responsabilidad Social y Ambiental</h4>
+                    <p><strong>Objetivo:</strong> Contribuir al bienestar de la comunidad y al cuidado del medio ambiente a través de prácticas sostenibles y éticas.</p>
+                    <p><strong>Alcance:</strong> Integra aspectos sociales, ambientales y económicos en la gestión de la clínica.</p>
+                    <p><strong>Compromiso:</strong> Fomentamos programas de salud comunitaria, el uso eficiente de recursos, la reducción y manejo adecuado de residuos, y la promoción de un entorno laboral justo y seguro. Buscamos generar un impacto positivo más allá de la atención médica.</p>
+
+                    <p class="mt-4">Para cualquier consulta o aclaración sobre nuestras políticas, no dudes en contactarnos.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal fade" id="privacyPolicyModal" tabindex="-1" aria-labelledby="privacyPolicyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyPolicyModalLabel">Política de Privacidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Política de Privacidad de VITAE REAL</h3>
+                    <p>En VITAE REAL, nos comprometemos a proteger y respetar su privacidad. Esta Política de Privacidad describe cómo recopilamos, utilizamos y compartimos su información personal cuando visita nuestro sitio web y utiliza nuestros servicios.</p>
+
+                    <h4>1. Información que Recopilamos</h4>
+                    <p>Podemos recopilar diversos tipos de información personal, incluyendo:</p>
+                    <ul>
+                        <li>**Información de contacto:** Nombre, dirección de correo electrónico, número de teléfono, dirección postal.</li>
+                        <li>**Información demográfica:** Edad, género.</li>
+                        <li>**Información de salud:** Datos relacionados con su historial médico, citas, tratamientos y resultados de exámenes (solo con su consentimiento explícito y para fines de atención médica).</li>
+                        <li>**Información técnica:** Dirección IP, tipo de navegador, sistema operativo, páginas visitadas y tiempo de visita en nuestro sitio web.</li>
+                    </ul>
+
+                    <h4>2. Uso de la Información</h4>
+                    <p>Utilizamos la información recopilada para los siguientes propósitos:</p>
+                    <ul>
+                        <li>Proporcionar y gestionar nuestros servicios de salud.</li>
+                        <li>Comunicarnos con usted sobre sus citas, tratamientos o consultas.</li>
+                        <li>Mejorar y personalizar su experiencia en nuestro sitio web.</li>
+                        <li>Realizar análisis estadísticos para mejorar la calidad de nuestros servicios.</li>
+                        <li>Cumplir con nuestras obligaciones legales y regulatorias.</li>
+                    </ul>
+
+                    <h4>3. Compartir Información</h4>
+                    <p>No compartiremos su información personal con terceros, excepto en los siguientes casos:</p>
+                    <ul>
+                        <li>Con su consentimiento explícito.</li>
+                        <li>Con proveedores de servicios que actúan en nuestro nombre y bajo estrictas cláusulas de confidencialidad.</li>
+                        <li>Cuando sea requerido por ley o para cumplir con un proceso legal.</li>
+                        <li>Para proteger los derechos, la propiedad o la seguridad de VITAE REAL, nuestros pacientes o el público.</li>
+                    </ul>
+
+                    <h4>4. Seguridad de la Información</h4>
+                    <p>Implementamos medidas de seguridad técnicas, administrativas y físicas para proteger su información personal contra el acceso no autorizado, la divulgación, la alteración o la destrucción. Nos esforzamos por proteger su información, pero ninguna transmisión de datos por Internet es 100% segura.</p>
+
+                    <h4>5. Sus Derechos</h4>
+                    <p>Usted tiene derecho a:</p>
+                    <ul>
+                        <li>Acceder a su información personal.</li>
+                        <li>Rectificar cualquier información inexacta o incompleta.</li>
+                        <li>Solicitar la eliminación de su información personal.</li>
+                        <li>Oponerse al procesamiento de su información personal.</li>
+                        <li>Revocar su consentimiento en cualquier momento.</li>
+                    </ul>
+                    <p>Para ejercer estos derechos, por favor contáctenos a través de los canales proporcionados en nuestra sección de contacto.</p>
+
+                    <h4>6. Cambios en la Política de Privacidad</h4>
+                    <p>Podemos actualizar esta Política de Privacidad periódicamente. Le notificaremos cualquier cambio sustancial mediante la publicación de la nueva política en nuestro sitio web. Se recomienda revisar esta política regularmente para estar informado sobre cómo protegemos su información.</p>
+
+                    <p class="mt-4">Fecha de última actualización: 10 de Junio de 2025.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Use Modal -->
+    <div class="modal fade" id="termsOfUseModal" tabindex="-1" aria-labelledby="termsOfUseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsOfUseModalLabel">Términos de Uso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Términos y Condiciones de Uso de VITAE REAL</h3>
+                    <p>Bienvenido al sitio web de VITAE REAL. Al acceder y utilizar este sitio web, usted acepta estar sujeto a los siguientes términos y condiciones de uso. Si no está de acuerdo con estos términos, por favor, no utilice nuestro sitio web.</p>
+
+                    <h4>1. Aceptación de los Términos</h4>
+                    <p>Estos Términos de Uso constituyen un acuerdo legal vinculante entre usted y VITAE REAL. Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el sitio web.</p>
+
+                    <h4>2. Uso del Sitio Web</h4>
+                    <p>Este sitio web está destinado a proporcionar información general sobre los servicios y la misión de VITAE REAL. No sustituye la consulta médica profesional. La información contenida aquí no debe utilizarse para diagnosticar, tratar o curar ninguna condición médica.</p>
+                    <ul>
+                        <li>El contenido de las páginas de este sitio web es para su información general y uso exclusivo. Está sujeto a cambios sin previo aviso.</li>
+                        <li>Ni nosotros ni ningún tercero ofrecemos garantía alguna sobre la precisión, puntualidad, rendimiento, integridad o idoneidad de la información y los materiales encontrados u ofrecidos en este sitio web para cualquier propósito particular. Usted reconoce que dicha información y materiales pueden contener inexactitudes o errores, y expresamente excluimos la responsabilidad por tales inexactitudes o errores en la máxima medida permitida por la ley.</li>
+                    </ul>
+
+                    <h4>3. Propiedad Intelectual</h4>
+                    <p>Todo el contenido de este sitio web, incluyendo textos, gráficos, logotipos, íconos, imágenes, clips de audio y video, compilaciones de datos y software, es propiedad de VITAE REAL o de sus proveedores de contenido y está protegido por las leyes de derechos de autor y marcas registradas.</p>
+
+                    <h4>4. Enlaces a Terceros</h4>
+                    <p>Nuestro sitio web puede contener enlaces a otros sitios web que no son operados por nosotros. Estos enlaces se proporcionan para su conveniencia. No tenemos control sobre el contenido, las políticas de privacidad o las prácticas de sitios web de terceros y no asumimos ninguna responsabilidad por ellos. Le recomendamos revisar las políticas de privacidad y los términos de uso de cualquier sitio de terceros que visite.</p>
+
+                    <h4>5. Limitación de Responsabilidad</h4>
+                    <p>VITAE REAL no será responsable de ningún daño directo, indirecto, incidental, consecuente o punitivo que resulte del uso o la imposibilidad de usar este sitio web, incluso si VITAE REAL ha sido advertido de la posibilidad de tales daños.</p>
+
+                    <h4>6. Indemnización</h4>
+                    <p>Usted acepta indemnizar, defender y eximir de responsabilidad a VITAE REAL, sus directores, empleados, agentes y afiliados, de y contra todas y cada una de las reclamaciones, responsabilidades, daños, pérdidas, costos y gastos, incluidos los honorarios razonables de abogados, que surjan de su uso del sitio web o su incumplimiento de estos Términos de Uso.</p>
+
+                    <h4>7. Ley Aplicable</h4>
+                    <p>Estos Términos de Uso se regirán e interpretarán de acuerdo con las leyes de Colombia, sin tener en cuenta sus disposiciones sobre conflictos de leyes. Cualquier disputa que surja en relación con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de Barranquilla, Colombia.</p>
+
+                    <p class="mt-4">Fecha de última actualización: 10 de Junio de 2025.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
