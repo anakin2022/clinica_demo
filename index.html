@@ -97,7 +97,16 @@
             padding: 20px; /* Add some padding to content */
             margin-top: 80px; /* Adjusted margin-top for content below fixed header */
         }
-
+        /* Style for the translucent background on the hero description */
+        .hero-description-container {
+            background-color: rgba(255, 255, 255, 0.029); /* Translucent white (10% opacity) */
+            border-radius: 1rem; /* Rounded corners */
+            padding: 1.5rem 2rem; /* Ample padding */
+            max-width: 800px; /* Limit width as per original <p> */
+            margin: 0 auto 2.5rem auto; /* Center and add bottom margin */
+            backdrop-filter: blur(2px); /* Optional: add a subtle blur effect */
+            -webkit-backdrop-filter: blur(5px); /* Safari support */
+        }
         /* Adjusted padding-top for sections to account for fixed header */
         section:not(#inicio) {
             padding-top: 96px; /* Header height (~64px) + some buffer */
@@ -359,9 +368,11 @@
                 </div>
             </div>
             <h2 class="display-3 fw-bolder mb-3">Excelencia que transforma la vida</h2>
-            <p class="lead mx-auto mb-5" style="max-width: 800px;">
-                Atención médica de tercer nivel con tecnología de punta, humanización y compromiso real con tu salud.
-            </p>
+            <div class="hero-description-container">
+                <p class="lead mb-0">
+                    Atención médica de tercer nivel con tecnología de punta, humanización y compromiso real con tu salud.
+                </p>
+            </div>
             <div class="d-flex flex-wrap justify-content-center gap-3">
                 <a href="#contacto" class="btn btn-light btn-lg rounded-pill shadow-sm animate-hover fw-bold">
                     Agenda tu cita
